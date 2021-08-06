@@ -1,0 +1,9 @@
+*{
+    box-sizing: border-box;
+}
+.el-pagination{
+    margin-top: 13px;
+}
+.ql-container{
+    min-height: 300px;
+}
