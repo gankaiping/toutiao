@@ -105,8 +105,10 @@ name: "mangerimages",
         this.addimageflag=true;
     },
   // 成功之后发生回调
-    successfnc(){
-        this.addimageflag=false;
+    successfnc(res){
+      console.log('图片上传成功');
+      console.log(res);
+      this.addimageflag=false;
     },
   //  添加到收藏
     addcollect(image){

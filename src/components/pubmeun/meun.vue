@@ -26,6 +26,14 @@
       <i class="el-icon-setting"></i>
       <span slot="title">评论管理</span>
     </el-menu-item>
+    <el-menu-item index="/fans"  @click="getActive('fans')">
+      <i class="el-icon-setting"></i>
+      <span slot="title">粉丝管理</span>
+    </el-menu-item>
+    <el-menu-item index="/mysetting"  @click="getActive('mysetting')">
+      <i class="el-icon-setting"></i>
+      <span slot="title">我的设置</span>
+    </el-menu-item>
   </el-menu>
 </template>
 

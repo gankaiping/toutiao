@@ -7,6 +7,8 @@ import article from "../components/wzlb/article.vue";
 import  publish from '../components/xwfb/publish.vue'
 import mangerimages from '../components/scgl/mangerimages.vue'
 import comment from "../components/plgl/comment.vue";
+import mysetting from "../components/setting/mysetting.vue";
+import fans from "../components/fansmanger/fans.vue";
 Vue.use(Router);
 const router=new Router({
     routes:[
@@ -18,7 +20,10 @@ const router=new Router({
                 {path:'/article',component:article},
                 {path:'/publish',component:publish},
                 {path:'/mangerimages',component:mangerimages},
-                {path:'/comment',component:comment}
+                {path:'/comment',component:comment},
+                {path:'/mysetting',component:mysetting},
+                {path:'/fans',component:fans}
+
             ]}
     ]
 })

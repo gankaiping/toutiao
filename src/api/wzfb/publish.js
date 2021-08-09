@@ -10,3 +10,11 @@ export  const wzpublish=(data,draftflag=false)=>{
         data:data
     })
 }
+
+export const wzupdateimg=(data)=>{
+    return req({
+        method:'POST',
+        url:'/mp/v1_0/user/images',
+        data:data
+    })
+}

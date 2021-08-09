@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import gloabus from '../../util/gloabbus'
 import meun from '../pubmeun/meun.vue'
 import {getuserinfo} from '../../api/home/home'
 export default {
@@ -50,6 +51,10 @@ name: "home",
   },
   created() {
       this.getruserinfofnc();
+    gloabus.$on('updateuser',(data)=>{
+          this.userinfo.name=data.name;
+          this.userinfo.photo=data.photo;
+      })
   },
   methods:{
     getruserinfofnc(){

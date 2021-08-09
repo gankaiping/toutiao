@@ -27,6 +27,12 @@
           <el-radio :label="3">三张</el-radio>
         </el-radio-group>
       </el-form-item>
+      <template v-if="publishfrom.cover.type>0">
+        <div class="showingbox">
+          <imgitem :value="publishfrom.cover.images[index]"  v-for="(item,index) in publishfrom.cover.type" :key="item" @updateimg="dataimgimplement(index,$event)"></imgitem>
+        </div>
+
+      </template>
       <el-form-item>
         <el-button :type="isalertf?'warning':'primary'" @click="publishfnc()">{{isalertf?'确认修改':'立即发布'}}</el-button>
         <el-button v-if="!isalertf" @click="draftfnc">存为草稿</el-button>
@@ -36,6 +42,7 @@
 </template>
 
 <script>
+import imgitem from "./component/imgitem";
 import {getArticleChannels,gettargetarticle,alertarticle} from '../../api/wzlb/article'
 import  {wzpublish} from '../../api/wzfb/publish'
 export default {
@@ -70,6 +77,9 @@ name: "publish",
   created() {
       this.getArticleChanneldata();
       this.isalert();
+  },
+  components:{
+    imgitem:imgitem
   },
   methods:{
     //获取频道信息
@@ -134,6 +144,12 @@ name: "publish",
         this.$message.error("发布失败！");
         console.log(err);
       })
+    },
+  //  获取到了传过来的图片
+    dataimgimplement(index,url){
+      this.publishfrom.cover.images[index]=url;
+      console.log(this.publishfrom.cover.images[index]);
+
     }
 
   }
@@ -141,5 +157,10 @@ name: "publish",
 </script>
 
 <style scoped>
-
+  .showingbox{
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 </style>
